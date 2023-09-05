@@ -12,7 +12,9 @@ const Navbar = () => {
   return (
     <nav className="container">
       <div className="flex items-center justify-between py-4">
-        <h1 className="text-4xl font-black"> LandInfoX </h1>
+        <h1 className="text-4xl font-black">
+          Land<span className="text-[#1C49BB]">InfoX</span>
+        </h1>
 
         <div
           className="relative h-6 w-12 rounded-full bg-[#ccc] md:cursor-pointer"
