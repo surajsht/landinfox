@@ -1,6 +1,6 @@
 const Switch = () => {
   return (
-    <select className="cursor-pointer bg-[#1C49BB] p-3 pr-6 text-white">
+    <select className="cursor-pointer bg-[#1C49BB] p-3 pr-6 text-white md:h-10 md:pb-0 md:pt-0">
       <option value="all">Filter by Regin</option>
       <option value="africa"> Africa </option>
       <option value="asia"> Asia </option>
