@@ -20,17 +20,19 @@ const DisplayUi = () => {
               <div key={dataIdx}>
                 <div className="relative mb-4 h-56 w-full">
                   <Image
-                    src={flags.png}
-                    alt={flags.official}
+                    src={flags?.png}
+                    alt="national-flag"
                     fill="true"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 60vw"
+                    priority={true}
                     className={
-                      name.official === "Federal Democratic Republic of Nepal"
+                      name?.official === "Federal Democratic Republic of Nepal"
                         ? "object-contain"
                         : "object-cover"
                     }
                   />
                 </div>
-                <h2 className="mb-2 text-2xl font-bold"> {name.official} </h2>
+                <h2 className="mb-2 text-2xl font-bold"> {name?.common} </h2>
 
                 <div className="mb-1 text-lg">
                   <span className="font-medium"> Capital : </span>

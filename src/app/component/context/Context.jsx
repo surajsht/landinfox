@@ -26,7 +26,13 @@ const Context = ({ children }) => {
     InitialFetch();
   }, []);
 
-  const contextValue = { fetchAll, loading };
+  const contextValue = {
+    fetchAll,
+    setFetchAll,
+    setLoading,
+    loading,
+    InitialFetch,
+  };
 
   return (
     <GlobalContext.Provider value={contextValue}>
