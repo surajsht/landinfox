@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { CustomContext } from "../context/Context";
 import Loading from "./Loading";
+import Link from "next/link";
 
 const DisplayUi = () => {
   let { fetchAll, loading } = CustomContext();
@@ -23,7 +24,7 @@ const DisplayUi = () => {
                     src={flags?.png}
                     alt="national-flag"
                     fill="true"
-                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 60vw"
+                    sizes="(max-width: 768px) 33vw, (max-width: 1200px) 20vw"
                     priority={true}
                     className={
                       name?.official === "Federal Democratic Republic of Nepal"
@@ -32,7 +33,9 @@ const DisplayUi = () => {
                     }
                   />
                 </div>
-                <h2 className="mb-2 text-2xl font-bold"> {name?.common} </h2>
+                <h2 className="mb-2 text-2xl font-bold">
+                  <Link href={`/country/${name?.common}`}>{name?.common}</Link>
+                </h2>
 
                 <div className="mb-1 text-lg">
                   <span className="font-medium"> Capital : </span>

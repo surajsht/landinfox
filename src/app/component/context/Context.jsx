@@ -10,9 +10,7 @@ const Context = ({ children }) => {
 
   let InitialFetch = async () => {
     try {
-      let data = await fetch("https://restcountries.com/v3.1/all", {
-        cache: "no-cache",
-      });
+      let data = await fetch("https://restcountries.com/v3.1/all");
       let response = await data.json();
       setFetchAll(response);
       setLoading(false);

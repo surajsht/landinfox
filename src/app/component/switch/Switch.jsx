@@ -15,8 +15,7 @@ const Switch = () => {
 
     try {
       let response = await fetch(
-        `https://restcountries.com/v3.1/region/${e.target.value}`,
-        { cache: "no-store" }
+        `https://restcountries.com/v3.1/region/${e.target.value}`
       );
       let data = await response.json();
       setFetchAll(data);
