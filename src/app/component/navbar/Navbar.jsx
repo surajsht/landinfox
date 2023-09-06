@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const Navbar = () => {
   let [toggle, setToggle] = useState(false);
@@ -8,6 +8,14 @@ const Navbar = () => {
   const themeToggle = () => {
     setToggle(!toggle);
   };
+
+  useEffect(() => {
+    if (toggle) {
+      document.body.classList.add("dark-mode");
+    } else {
+      document.body.classList.remove("dark-mode");
+    }
+  }, [toggle]);
 
   return (
     <nav className="container">
