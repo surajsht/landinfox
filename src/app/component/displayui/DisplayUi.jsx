@@ -34,7 +34,9 @@ const DisplayUi = () => {
                   />
                 </div>
                 <h2 className="mb-2 text-2xl font-bold">
-                  <Link href={`/country/${name?.common}`}>{name?.common}</Link>
+                  <Link href={`/countries/${name?.common}`}>
+                    {name?.common}
+                  </Link>
                 </h2>
 
                 <div className="mb-1 text-lg">

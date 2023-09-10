@@ -7,7 +7,6 @@ import { useEffect, useState } from "react";
 
 const Single = ({ params }) => {
   let [countryData, setCountryData] = useState();
-  let [languages, setLanguages] = useState();
   let [loading, setLoading] = useState(true);
 
   let fetchSingleCountry = async () => {
@@ -31,18 +30,18 @@ const Single = ({ params }) => {
     <>
       <Navbar />
 
-      <div>
+      <div className="container mt-8 md:mt-24 lg:mt-36">
         {loading ? (
-          <h2> Loading ... </h2>
+          <h2 className="text-4xl font-bold"> Loading ... </h2>
         ) : (
-          <div className="container mb-4 mt-8 md:mt-24 lg:mt-36">
+          <div className="mt-4">
             <button className="mb-10 bg-[#ccc] px-2 py-1">
               <Link href="/" className="text-black">
                 Go back
               </Link>
             </button>
 
-            <div>
+            <>
               {countryData.map((data, dataIdx) => {
                 let {
                   name,
@@ -62,7 +61,10 @@ const Single = ({ params }) => {
                 const languageString = languageValues.join(", ");
 
                 return (
-                  <div key={dataIdx} className="md:flex md:gap-6 2xl:gap-10">
+                  <div
+                    key={dataIdx}
+                    className="mb-12 md:flex md:gap-6 2xl:gap-10"
+                  >
                     <div className="relative mb-6 h-56 w-full sm:h-80 md:w-1/2 lg:w-[40%] 2xl:w-[30%]">
                       <Image
                         src={flags?.png}
@@ -129,7 +131,7 @@ const Single = ({ params }) => {
                   </div>
                 );
               })}
-            </div>
+            </>
           </div>
         )}
       </div>
