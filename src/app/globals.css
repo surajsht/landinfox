@@ -6,3 +6,7 @@
   color: #fff;
   background-color: #101010;
 }
+
+.dark-mode input {
+  color: #000;
+}

@@ -5,18 +5,18 @@ import { CustomContext } from "../context/Context";
 import { useEffect, useState } from "react";
 
 const Search = () => {
-  let [userValue, setValue] = useState("");
+  let [value, setValue] = useState("");
 
   let { setLoading, setFetchAll, InitialFetch } = CustomContext();
 
   let searchCountry = (e) => {
-    setValue(e.target.userValue);
+    setValue(e.target.value);
   };
 
   let searchCountryData = async () => {
     setLoading(true);
 
-    if (!userValue) {
+    if (!value) {
       InitialFetch();
       setLoading(false);
       return;
@@ -24,7 +24,7 @@ const Search = () => {
 
     try {
       let response = await fetch(
-        `https://restcountries.com/v3.1/name/${userValue}`
+        `https://restcountries.com/v3.1/name/${value}`
       );
 
       if (!response.ok) {
@@ -45,14 +45,18 @@ const Search = () => {
     }, 500);
 
     return () => clearTimeout(timer);
-  }, [userValue]);
+  }, [value]);
 
   return (
-    <form action="" className="relative mb-4 flex items-center gap-2">
+    <form
+      action=""
+      className="relative mb-4 flex items-center gap-2"
+      onSubmit={(e) => e.preventDefault()}
+    >
       <input
         type="text"
         className="h-10 w-full border-[1px] border-black p-3 pl-12 md:w-80"
-        value={userValue}
+        value={value}
         onChange={(e) => searchCountry(e)}
       />
       <Image
