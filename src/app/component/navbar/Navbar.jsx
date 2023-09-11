@@ -3,17 +3,20 @@
 import { useEffect, useState } from "react";
 
 const Navbar = () => {
-  let [isDarkMode, setIsDarkMode] = useState(
-    localStorage.getItem("landinfox-darkMode") === "true"
-  );
+  let [toggle, setToggle] = useState(false);
 
   useEffect(() => {
-    document.body.classList.toggle("dark-mode", isDarkMode);
-    localStorage.setItem("landinfox-darkMode", isDarkMode);
-  }, [isDarkMode]);
+    const currentMode = localStorage.getItem("darkMode") === "true";
+    setToggle(currentMode);
+  }, []);
+
+  useEffect(() => {
+    document.body.classList.toggle("dark-mode", toggle);
+    localStorage.setItem("darkMode", toggle);
+  }, [toggle]);
 
   const themeToggle = () => {
-    setIsDarkMode(!isDarkMode);
+    setToggle(!toggle);
   };
 
   return (
@@ -29,7 +32,7 @@ const Navbar = () => {
         >
           <div
             className={`absolute left-1 top-[50%] h-4 w-4 translate-y-[-50%] rounded-full bg-[#fff] transition duration-500 ${
-              isDarkMode ? "translate-x-[23px]" : "translate-x-0"
+              toggle ? "translate-x-[23px]" : "translate-x-0"
             }`}
           ></div>
         </div>
